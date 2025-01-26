@@ -8,13 +8,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Reservation {
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String userInfo;
     @ManyToOne
-    private Room room;
+    private Product product;
     private LocalDate reservationDate;
     private LocalDate endDate;
     private String status;

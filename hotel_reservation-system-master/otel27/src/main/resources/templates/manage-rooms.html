@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Odaları Yönet</title>
-  <link rel="stylesheet" th:href="@{/css/manage-rooms.css}">
+  <link rel="stylesheet" th:href="@{/css/manage-products.css}">
 </head>
 <body>
 <div class="container">
@@ -20,11 +20,11 @@
 
   <!-- Add Room Button -->
   <div class="action-buttons">
-    <a href="/admin/add-room" class="add-btn">Yeni Oda Ekle</a>
+    <a href="/admin/add-product" class="add-btn">Yeni Oda Ekle</a>
   </div>
 
   <!-- Rooms Table -->
-  <table class="rooms-table">
+  <table class="products-table">
     <thead>
     <tr>
       <th>Oda Adı</th>
@@ -35,13 +35,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="room : ${rooms}">
-      <td th:text="${room.name}"></td>
-      <td th:text="${room.price}"></td>
-      <td th:text="${room.size}"></td>
-      <td th:text="${room.available ? 'Müsait' : 'Dolu'}"></td>
+    <tr th:each="product : ${products}">
+      <td th:text="${product.name}"></td>
+      <td th:text="${product.price}"></td>
+      <td th:text="${product.size}"></td>
+      <td th:text="${product.available ? 'Müsait' : 'Dolu'}"></td>
       <td class="actions">
-        <form th:action="@{/admin/delete-room/{id}(id=${room.id})}" method="post" style="display: inline;">
+        <form th:action="@{/admin/delete-product/{id}(id=${product.id})}" method="post" style="display: inline;">
           <button type="submit" class="delete-btn" onclick="return confirm('Bu odayı silmek istediğinizden emin misiniz?')">Sil</button>
         </form>
       </td>

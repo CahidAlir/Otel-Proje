@@ -15,10 +15,10 @@
         <div class="col-md-6">
             <div class="card mb-4">
                 <div class="card-header">
-                    <h2 class="card-title">Rezervasyon Detayları</h2>
+                    <h2 class="card-title">Sipariş Detayları</h2>
                 </div>
                 <div class="card-body">
-                    <p><strong>Ürün Numarası:</strong> <span th:text="${room.id}"></span></p>
+                    <p><strong>Ürün Numarası:</strong> <span th:text="${product.id}"></span></p>
                     <p><strong>Sıparıs Tarihi:</strong> <span th:text="${#temporals.format(orderDate, 'dd-MM-yyyy')}"></span></p>
                     <p><strong>Kişi Sayısı:</strong> <span th:text="${quantity}"></span></p>
                     <p><strong>Toplam Tutar:</strong> <span th:text="${#numbers.formatDecimal(totalPrice, 0, 'COMMA', 2, 'POINT')}"></span> TL</p>

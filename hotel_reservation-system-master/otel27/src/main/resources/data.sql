@@ -1,5 +1,5 @@
 -- Create tables
-CREATE TABLE IF NOT EXISTS room (
+CREATE TABLE IF NOT EXISTS product (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255),
     price DECIMAL(10, 2),
@@ -8,15 +8,16 @@ CREATE TABLE IF NOT EXISTS room (
     ROOM_PICTURE_NAME VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS room_property (
+CREATE TABLE IF NOT EXISTS product_property (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     property VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS ROOM_ROOM_PROPERTIES (
-    room_id BIGINT,
-    room_properties_id BIGINT
+CREATE TABLE IF NOT EXISTS PRODUCT_PRODUCT_PROPERTIES (
+    PRODUCT_ID BIGINT,
+    PRODUCT_PROPERTIES_ID  BIGINT
 );
+
 
 CREATE TABLE IF NOT EXISTS customer (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -26,8 +27,8 @@ CREATE TABLE IF NOT EXISTS customer (
     user_role VARCHAR(255)
 );
 
--- Insert rooms
-INSERT INTO room (name, price, available, room_picture_name, SIZE) VALUES
+-- Insert products
+INSERT INTO product (name, price, available, room_picture_name, SIZE) VALUES
     ('Domates', 30.00, false, 'domates.jpg', 4),
     ('Patates', 15.00, true, 'patates.jpg', 3),
     ('Salatalık', 12.00, true, 'salatalık.jpg', 2),
@@ -36,8 +37,8 @@ INSERT INTO room (name, price, available, room_picture_name, SIZE) VALUES
     ('Elma', 45.00, true, 'Elma.webp', 6),
     ('Kiraz', 28.00, true, 'Kiraz.jpg', 4);
 
--- Insert room properties
-INSERT INTO room_property(property) VALUES
+-- Insert product properties
+INSERT INTO product_property(property) VALUES
     -- Tropik Oda (Tropical Room)
     ('Egzotik Dekorasyon: Tropik bitkiler, bambu mobilyalar, deniz kabukları ve sıcak renklerle tasarlanmış bir iç mekan.'),
     ('Hamak veya Salıncak: Rahatlama alanı olarak bir hamak veya tavan salıncağı kurulabilir.'),
@@ -85,8 +86,8 @@ INSERT INTO room_property(property) VALUES
     ('Sıcak Aydınlatma: Loş ışıklar ve sıcak tonlar odanın huzur verici bir ortam sağlamasına yardımcı olur.'),
     ('Kış Temalı Aksesuarlar: Yastıklar, battaniyeler ve halılar gibi kış temalı aksesuarlar odanın atmosferini tamamlar.');
 
--- Insert room-room properties relations
-INSERT INTO room_room_properties(room_id, room_properties_id) VALUES
+-- Insert product-product properties relations
+INSERT INTO product_product_properties(product_id, product_properties_id) VALUES
     (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), -- Tropik Oda
     (2, 7), (2, 8), (2, 9), (2, 10), (2, 11),
      (3, 12), (3, 13), (3, 14), (3, 15), (3, 16),

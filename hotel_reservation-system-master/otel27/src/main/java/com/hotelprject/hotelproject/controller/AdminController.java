@@ -1,12 +1,12 @@
 package com.hotelprject.hotelproject.controller;
 
 import com.hotelprject.hotelproject.model.Customer;
-import com.hotelprject.hotelproject.model.Room;
+import com.hotelprject.hotelproject.model.Product;
 import com.hotelprject.hotelproject.model.dto.ReservationDto;
 import com.hotelprject.hotelproject.service.AdminService;
 import com.hotelprject.hotelproject.service.HotelUserService;
-import com.hotelprject.hotelproject.service.ReservationService;
-import com.hotelprject.hotelproject.service.RoomService;
+import com.hotelprject.hotelproject.service.OrderService;
+import com.hotelprject.hotelproject.service.ProductService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -22,8 +22,8 @@ public class AdminController {
 
     private final AdminService adminService;
     private final HotelUserService hotelUserService;
-    private final ReservationService reservationService;
-    private final RoomService roomService;
+    private final OrderService orderService;
+    private final ProductService productService;
 
     @GetMapping("/admin/login")
     public String adminLoginPage() {
@@ -80,15 +80,15 @@ public class AdminController {
         }
 
         try {
-            List<ReservationDto> reservationDtoList = reservationService.findAllReservations()
+            List<ReservationDto> reservationDtoList = orderService.findAllReservations()
                     .stream()
                     .map(r -> ReservationDto.builder()
                             .id(r.getId())
                             .fullName(r.getUserInfo())
-                            .roomNumber(r.getRoom().getId())
+                            .roomNumber(r.getProduct().getId())
                             .checkInDate(r.getReservationDate())
                             .checkOutDate(r.getEndDate())
-                            .totalPrice(r.getRoom().getPrice())
+                            .totalPrice(r.getProduct().getPrice())
                             .status(r.getStatus())
                             .build())
                     .toList();
@@ -108,8 +108,8 @@ public class AdminController {
             return "redirect:/admin/login";
         }
 
-        List<Room> rooms = roomService.getAllRooms();
-        model.addAttribute("rooms", rooms);
+        List<Product> products = productService.getAllProducts();
+        model.addAttribute("rooms", products);
         return "manage-rooms";
     }
 
@@ -133,12 +133,12 @@ public class AdminController {
         }
 
         try {
-            Room room = new Room();
-            room.setName(name);
-            room.setPrice(price);
-            room.setSize(size);
-            room.setAvailable(true);
-            roomService.saveRoom(room);
+            Product product = new Product();
+            product.setName(name);
+            product.setPrice(price);
+            product.setSize(size);
+            product.setAvailable(true);
+            productService.saveRoom(product);
             return "redirect:/admin/manage-rooms?success=true";
         } catch (Exception e) {
             return "redirect:/admin/manage-rooms?error=true";
@@ -153,7 +153,7 @@ public class AdminController {
         }
 
         try {
-            roomService.deleteRoom(roomId);
+            productService.deleteRoom(roomId);
             return "redirect:/admin/manage-rooms?success=true";
         } catch (Exception e) {
             return "redirect:/admin/manage-rooms?error=true";

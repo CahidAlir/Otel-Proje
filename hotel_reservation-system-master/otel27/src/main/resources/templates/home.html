@@ -15,8 +15,8 @@
     <div class="navbar-container">
         <a href="/home" class="logo">ShopBuddy</a>
         <div class="nav-links">
-            <a href="/rooms">Ürünleri Görüntüle</a>
-            <a href="/cancel-reservation" class="cancel-button">Siparişi İptal Et</a>
+            <a href="/products">Ürünleri Görüntüle</a>
+            <a href="/cancel-order" class="cancel-button">Siparişi İptal Et</a>
             <button id="wheelButton" class="wheel-button" onclick="showWheelModal()">🎡 Çarkı Çevir</button>
         </div>
         <div class="user-actions">
@@ -58,7 +58,7 @@
 <section class="welcome-section" th:style="'background-image: url(' + @{/homeimages/manav.jpg} + '); background-size: cover; background-position: center; background-repeat: no-repeat;'">
     <h1>ShopBuddy market alanına hoşgeldiniz</h1>
     <p>Uygun fiyatların ve kaliteli ürünlerin buluşma noktası.</p>
-    <a href="/rooms" class="cta-button">Ürünleri Keşfet</a>
+    <a href="/products" class="cta-button">Ürünleri Keşfet</a>
 </section>
 
 <!-- Otel Resimleri Galerisi -->
@@ -66,16 +66,16 @@
     <h2>Ürünlerimizin Görselleri</h2>
     <div class="gallery">
         <div class="gallery-item">
-            <img th:src="@{'/homeimages/domates.jpg'}" alt="Product photo 1" class="room-image">
+            <img th:src="@{'/homeimages/domates.jpg'}" alt="Product photo 1" class="product-image">
         </div>
         <div class="gallery-item">
-            <img th:src="@{'/homeimages/patates.jpg'}" alt="Product photo 2" class="room-image">
+            <img th:src="@{'/homeimages/patates.jpg'}" alt="Product photo 2" class="product-image">
         </div>
         <div class="gallery-item">
-            <img th:src="@{'/homeimages/salatalık.jpg'}" alt="Product photo3" class="room-image">
+            <img th:src="@{'/homeimages/salatalık.jpg'}" alt="Product photo3" class="product-image">
         </div>
         <div class="gallery-item">
-            <img th:src="@{'/homeimages/patlıcan.jpg'}" alt="Product photo 4" class="room-image">
+            <img th:src="@{'/homeimages/patlıcan.jpg'}" alt="Product photo 4" class="product-image">
         </div>
     </div>
 </section>

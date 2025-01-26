@@ -11,18 +11,18 @@
 
 <div class="reserve-container">
     <form class="reserve-form" th:action="@{/reserve/checkout}" method="post">
-        <h2>Rezervasyon Detayları</h2>
+        <h2>Ürün Detayları</h2>
 
         <!-- Oda adı (readonly olabilir) -->
-        <input type="text" th:value="${room.name}" readonly />
+        <input type="text" th:value="${product.name}" readonly />
 
-        <img th:src="@{'/images/rooms/' + ${room.roomPictureName}}" alt="Room Image" class="room-image" />
+        <img th:src="@{'/images/products/' + ${product.roomPictureName}}" alt="Room Image" class="product-image" />
 
         <!-- Başlangıç Tarihi -->
         <label for="reservationDate">Başlangıç Tarihi:</label>
         <input type="date" name="reservationDate" id="reservationDate" required />
 
-        <input type="hidden" name="roomId" th:value="${room.id}" />
+        <input type="hidden" name="roomId" th:value="${product.id}" />
 
         <!-- Bitiş Tarihi -->
         <label for="endDate">Bitiş Tarihi:</label>
@@ -31,7 +31,7 @@
         <!-- Kişi sayısı -->
         <label for="numOfPeople">Kişi Sayısı</label>
         <input type="number" name="numOfPeople" id="numOfPeople" placeholder="Kişi Sayısı" min="1"
-               th:max="${room.size}" required />
+               th:max="${product.size}" required />
 
         <!-- Ödeme bilgileri -->
         <h2>Ödeme Bilgileri</h2>
@@ -49,7 +49,7 @@
         <input type="password" name="cvv" id="cvv" placeholder="XXX" pattern="\d{3}" required />
 
         <!-- Rezervasyon yapma butonu -->
-        <button type="submit">Rezerve Et ve Öde</button>
+        <button type="submit">Sipariş ver</button>
     </form>
 </div>
 

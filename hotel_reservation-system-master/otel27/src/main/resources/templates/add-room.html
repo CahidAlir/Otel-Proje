@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oda Ekle</title>
-  <link rel="stylesheet" th:href="@{/css/manage-rooms.css}">
+  <link rel="stylesheet" th:href="@{/css/manage-products.css}">
 </head>
 <body>
 <div class="container">
@@ -18,7 +18,7 @@
     Oda eklenirken bir hata oluştu.
   </div>
 
-  <form action="/admin/add-room" method="post" class="room-form">
+  <form action="/admin/add-product" method="post" class="product-form">
     <div class="form-group">
       <label for="name">Oda Adı:</label>
       <input type="text" id="name" name="name" required>
@@ -35,7 +35,7 @@
     </div>
 
     <button type="submit" class="submit-btn">Oda Ekle</button>
-    <a href="/admin/manage-rooms" class="cancel-btn">İptal</a>
+    <a href="/admin/manage-products" class="cancel-btn">İptal</a>
   </form>
 </div>
 </body>
